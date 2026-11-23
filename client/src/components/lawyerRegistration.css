@@ -1,0 +1,222 @@
+/* =============================================
+   HireALawyer.pk — Lawyer Registration Page
+   Aesthetic: Fresh Legal — White + Green
+   (Matches loginForm.css style)
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --green-dark:   #1a3a28;
+  --green-main:   #228b4a;
+  --green-mid:    #2d7a52;
+  --green-soft:   #4a9e6e;
+  --green-light:  #e8f5ee;
+  --green-border: #c3e6d0;
+  --green-pale:   #f0faf4;
+  --white:        #ffffff;
+  --text-dark:    #1a3a28;
+  --text-muted:   #7aab90;
+  --error:        #d63a3a;
+  --radius-sm:    8px;
+  --radius-md:    10px;
+  --radius-lg:    20px;
+  --transition:   0.2s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Page Background ── */
+.lawyer-register-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0faf4 0%, #ffffff 50%, #e8f5ee 100%);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 40px 24px 60px;
+  animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Header / Logo Area ── */
+.textLogoContainer {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.textLogoContainer h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+.logoText {
+  color: var(--green-main);
+  font-style: italic;
+}
+
+/* ── Form Card ── */
+.lawyer-details-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-lg);
+  padding: 48px 44px 44px;
+  box-shadow: 0 8px 40px rgba(34,139,74,0.10), 0 1px 0 rgba(34,139,74,0.06);
+}
+
+/* ── Form Grid — 2 columns ── */
+.form-container-registration {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 28px;
+}
+
+/* Full-width fields: description, profile picture, submit button */
+.form-container-registration .lawyer-details-control:has(textarea),
+.form-container-registration .lawyer-details-control:has(input[type="file"]),
+.form-container-registration .create-lawyer-account {
+  grid-column: 1 / -1;
+}
+
+/* ── Field Groups ── */
+.lawyer-details-control {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.lawyer-details-control label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+}
+
+/* ── Inputs, Select, Textarea ── */
+.inputControl {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--green-border);
+  border-radius: var(--radius-md);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  background: #fafffe;
+  outline: none;
+  caret-color: var(--green-main);
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.inputControl::placeholder { color: #aacbb8; }
+
+.inputControl:focus {
+  border-color: var(--green-main);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(34,139,74,0.1);
+}
+
+/* ── Select Arrow ── */
+.lawyer-details-control select.inputControl {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232d7a52' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+/* ── Textarea ── */
+.lawyer-details-control textarea.inputControl {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.6;
+}
+
+/* ── File Input ── */
+.lawyer-details-control input[type="file"].inputControl {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.lawyer-details-control input[type="file"].inputControl::-webkit-file-upload-button {
+  background: var(--green-light);
+  color: var(--green-dark);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: background var(--transition);
+}
+
+.lawyer-details-control input[type="file"].inputControl::-webkit-file-upload-button:hover {
+  background: var(--green-border);
+}
+
+/* ── Error ── */
+.error {
+  font-size: 0.88rem;
+  color: var(--error);
+  margin-top: 2px;
+}
+
+/* ── Submit Button ── */
+.create-lawyer-account {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--green-main), #1a6e3a);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 4px 16px rgba(34,139,74,0.3);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.create-lawyer-account:hover {
+  background: linear-gradient(135deg, #1a6e3a, #145830);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(34,139,74,0.38);
+}
+
+.create-lawyer-account:active { transform: translateY(0); }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .lawyer-details-container {
+    padding: 32px 20px 28px;
+  }
+
+  .form-container-registration {
+    grid-template-columns: 1fr;
+  }
+
+  .form-container-registration .lawyer-details-control:has(textarea),
+  .form-container-registration .lawyer-details-control:has(input[type="file"]),
+  .form-container-registration .create-lawyer-account {
+    grid-column: 1;
+  }
+
+  .textLogoContainer h1 {
+    font-size: 1.45rem;
+  }
+}

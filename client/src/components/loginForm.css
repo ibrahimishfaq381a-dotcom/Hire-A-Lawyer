@@ -1,0 +1,275 @@
+
+/* =======================
+   MAIN LAYOUT (FIXED PROFESSIONAL GRID FEEL)
+======================= */
+.form-bodyLogin {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+
+  padding: 60px 100px;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* =======================
+   BACKGROUND IMAGE
+======================= */
+.form-bodyLogin::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: url("../images/court\ room\ image.jpg") no-repeat center/cover;
+  filter: blur(0px) brightness(0.55);
+  transform: scale(1.08);
+
+  z-index: -2;
+}
+
+/* =======================
+   OVERLAY
+======================= */
+.form-bodyLogin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.93),
+    rgba(220,252,231,0.85)
+  );
+
+  z-index: -1;
+}
+
+/* =======================
+   LEFT + RIGHT SECTION FIX
+======================= */
+.left-section,
+.right-section {
+  flex: 1;
+  color: #111827;
+  z-index: 2;
+}
+
+/* =======================
+   TEXT STYLE (COMMON)
+======================= */
+.left-section h1,
+.right-section h1 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.left-section span,
+.right-section span {
+  color: #0ba6ed;
+}
+
+.left-section p,
+.right-section p {
+  font-size: 16px;
+  color: #374151;
+  max-width: 480px;
+  line-height: 1.8;
+}
+
+/* =======================
+   INFO BOX (LAWYER + CLIENT)
+======================= */
+.info-box {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+.info-box h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.info-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-box ul li {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+/* =======================
+   LOGIN CARD (CENTER FIXED)
+======================= */
+.containerLogin {
+  width: 420px;
+  padding: 45px;
+  border-radius: 22px;
+
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.18);
+
+  transition: all 0.35s ease;
+
+  flex-shrink: 0;
+  z-index: 3;
+}
+
+.containerLogin:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.25);
+}
+
+/* =======================
+   HEADING
+======================= */
+.MainTextLogin {
+  text-align: center;
+  font-size: 27px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: #111827;
+}
+
+.HireLogin {
+  color: #16a34a;
+}
+
+/* =======================
+   INPUTS
+======================= */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.FieldLogin {
+  width: 100%;
+  padding: 15px 14px;
+  border-radius: 12px;
+
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+
+  font-size: 14px;
+  outline: none;
+
+  transition: all 0.25s ease;
+}
+
+.FieldLogin::placeholder {
+  color: transparent;
+}
+
+/* LABEL */
+.input-group label {
+  position: absolute;
+  top: 15px;
+  left: 14px;
+
+  font-size: 14px;
+  color: #6b7280;
+
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+
+.FieldLogin:focus + label,
+.FieldLogin:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 10px;
+  font-size: 11px;
+  color: #16a34a;
+  background: #ffffff;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+.FieldLogin:focus {
+  background: #ffffff;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22,163,74,0.15);
+  transform: scale(1.01);
+}
+
+/* =======================
+   PASSWORD ICON
+======================= */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper span {
+  position: absolute;
+  right: 14px;
+  top: 15px;
+
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.password-wrapper span:hover {
+  color: #16a34a;
+}
+
+/* =======================
+   BUTTON
+======================= */
+.submit-btnLogin {
+  width: 100%;
+  padding: 15px;
+
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  border-radius: 12px;
+  cursor: pointer;
+
+  box-shadow: 0 15px 35px rgba(22,163,74,0.3);
+  transition: all 0.3s ease;
+}
+
+.submit-btnLogin:hover {
+  transform: translateY(-3px);
+}
+
+/* =======================
+   RESPONSIVE FIX
+======================= */
+@media (max-width: 900px) {
+  .form-bodyLogin {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .left-section,
+  .right-section {
+    text-align: center;
+  }
+
+  .containerLogin {
+    width: 100%;
+    max-width: 420px;
+  }
+}
